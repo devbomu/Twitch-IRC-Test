@@ -12,8 +12,11 @@ client.on('connect', function(connection) {
     connection.sendUTF('CAP REQ :twitch.tv/membership twitch.tv/tags twitch.tv/commands');
     connection.sendUTF('NICK justinfan1231315615231651');
 
+    // The username of a streamer
     var login = 'woowakgood';
-    var streamerId = '138802499';
+
+    // The id of a chatter you're trying to find
+    var chatterId = '138802499';
 
     connection.sendUTF('JOIN #' + login);
 
@@ -32,7 +35,7 @@ client.on('connect', function(connection) {
             chatEnd = message.utf8Data.length - 2;
             chat = message.utf8Data.substring(chatStart+1, chatEnd);
 
-            streamerId === userId ? console.log(chat) : null;
+            chatterId === userId ? console.log(chat) : null;
         }
     });
 });
